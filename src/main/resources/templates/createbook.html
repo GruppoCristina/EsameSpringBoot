@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Libro</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+    }
+
+    td {
+      padding: 10px 0;
+    }
+
+    .error {
+      color: #ff0000;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin: 5px 0;
+      border: 1px solid #b3b6bb;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #57b0d7;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4c92b5;
+    }
+  </style>
+</head>
+<body>
+<form action="#" th:action="@{/postStoreBook}" th:object="${libro}" method="post">
+  <table>
+    <tr>
+      <td>Titolo:</td>
+      <td><input type="text" th:field="*{titolo}" /></td>
+      <td class="error" th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}">Titolo Error</td>
+    </tr>
+    <tr>
+      <td>Autore:</td>
+      <td><input type="text" th:field="*{autore}" /></td>
+      <td class="error" th:if="${#fields.hasErrors('autore')}" th:errors="*{autore}">Autore Error</td>
+    </tr>
+    <tr>
+      <td>Descrizione:</td>
+      <td><input type="text" th:field="*{descrizione}" /></td>
+      <td class="error" th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}">Descrizione Error</td>
+    </tr>
+    <tr>
+      <td>Prezzo:</td>
+      <td><input type="number" th:field="*{prezzo}" /></td>
+      <td class="error" th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}">Prezzo Error</td>
+    </tr>
+    <tr>
+      <td colspan="2"><button type="submit">Submit</button></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

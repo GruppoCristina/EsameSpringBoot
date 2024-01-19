@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica libro</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin: 5px 0;
+            border: 1px solid #b3b6bb;
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #57b0d7;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #57b0d7;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<h2>Modifica Libro</h2>
+
+<form th:action="@{modificaPost}" th:object="${libro}" method="post">
+  <input type="hidden" id="id" name="id" th:value="${libro.id}" />
+  <label for="title">Titolo:</label>
+  <input type="text" id="title" name="title" th:field="*{titolo}" />
+
+  <label for="author">Autore:</label>
+  <input type="text" id="author" name="author" th:field="*{autore}" />
+
+  <label for="description">Descrizione:</label>
+  <textarea id="description" name="description" th:field="*{descrizione}"></textarea>
+
+  <button type="submit">Salva Modifiche</button>
+</form>
+<a href="/home">Torna alla home</a>
+</body>
+</html>

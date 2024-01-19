@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifica utente</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin: 5px 0;
+      border: 1px solid #b3b6bb;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #57b0d7;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #57b0d7;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<h2>Modifica Utente</h2>
+
+<form th:action="@{modificaPostUtente}" th:object="${utente}" method="post">
+  <label for="name">Nome:</label>
+  <input type="text" id="name" name="name" th:field="*{nome}" />
+
+  <label for="surname">Surname:</label>
+  <input type="text" id="surname" name="surname" th:field="*{cognome}" />
+
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" th:field="*{username}" />
+
+  <label for="password">Password:</label>
+  <input type="text" id="password" name="password" th:field="*{password}" />
+
+  <button type="submit">Salva Modifiche</button>
+</form>
+<a href="/home">Torna alla home</a>
+</body>
+</html>

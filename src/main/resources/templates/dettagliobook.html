@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio libro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #b3b6bb;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #57b0d7;
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+      background-color: #ddd;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: #fff;
+      background-color: #57b0d7;
+      border-radius: 5px;
+    }
+  </style>
+
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Autore</th>
+    <th>Descrizione</th>
+    <th>Cancella</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td th:text="${libro.getTitolo()}"></td>
+    <td th:text="${libro.getAutore()}"></td>
+    <td th:text="${libro.getDescrizione()}"></td>
+    <td> <a th:href="@{/remove(libroId=${libro.getId()})}"> Rimuovi libro </a></td>
+  </tr>
+  </tbody>
+</table>
+<a href="/home">Torna alla home</a>
+</body>
+</html>
