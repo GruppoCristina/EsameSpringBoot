@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Profilo</title>
+  <meta charset="UTF-8">
+  <title>Profilo</title>
 
   <style>
     body {
@@ -33,6 +33,16 @@
       background-color: #f2f2f2;
     }
 
+    button {
+      background-color: #57b0d7;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
     a {
       text-decoration: none;
       color: #57b0d7;
@@ -41,6 +51,10 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    .button-container {
+      margin-top: 20px;
     }
   </style>
 
@@ -64,12 +78,14 @@
     <td th:text="${utente.getCognome()}"></td>
     <td th:text="${utente.getUsername()}"></td>
     <td th:text="${utente.getPassword()}"></td>
-    <td> <a th:href="@{/modificaUtente(uteneId=${utente.getId()})}"> Modifica utente </a></td>
-    <td> <a href="/logout">Logout</a></td>
-    <td> <a th:href="@{/delete}"> Elimina utente </a></td>
+    <td> <button onclick="window.location.href='/modificaUtente/${utente.getId()}'">Modifica utente</button></td>
+    <td> <button onclick="window.location.href='/logout'">Logout</button></td>
+    <td> <button onclick="window.location.href='/delete'">Elimina utente</button></td>
   </tr>
   </tbody>
 </table>
-<a href="/home">Torna alla home</a>
+<div class="button-container">
+  <button onclick="window.location.href='/home'">Torna alla home</button>
+</div>
 </body>
 </html>

@@ -37,8 +37,5 @@ public class LibroRestController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Libro>> getLibriByUserId(@PathVariable Integer userId) {
-        return ResponseEntity.ok(libroRepository.findLibroByUtenteLibri(userId));
-    }
+
 }

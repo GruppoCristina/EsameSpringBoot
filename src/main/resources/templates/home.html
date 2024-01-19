@@ -61,21 +61,15 @@
 <a href="/createBook">Aggiungi un libro</a>
 
 <h2>I miei Libri</h2>
-<table th:if="${not #lists.isEmpty(preferiti)}">
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Dettaglio</th>
+<div th:if="${not #lists.isEmpty(preferiti)}">
+  <div th:each="book : ${preferiti}">
+    <p>
+      <span th:text="${book.titolo}"></span>
+      <a th:href="@{/dettaglio(libroId=${book.getId()})}"> Dettaglio libro </a>
+    </p>
+  </div>
+</div>
 
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="book : ${preferiti}">
-    <td th:text="${book.titolo}"></td>
-    <td> <a th:href="@{/dettaglio(libroId=${book.getId()})}"> Dettaglio libro </a></td>
-  </tr>
-  </tbody>
-</table>
 
 <h2>Tutti i Libri</h2>
 <table th:if="${not #lists.isEmpty(libri)}">

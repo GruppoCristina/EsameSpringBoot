@@ -27,7 +27,7 @@ public class ProgettoEsameSpringBootApplication implements CommandLineRunner {
 		Libro libro = new Libro("Harry Potter", "J.K. Rowling", "Harry Potter è una serie di romanzi fantasy scritta da J. K. Rowling, incentrata sulle avventure del giovane mago Harry Potter e dei suoi migliori amici Ron Weasley ed Hermione Granger, studenti della Scuola di Magia e Stregoneria di Hogwarts. ", 20.0);
 		libroRepository.save(libro);
 
-		Utente utente = new Utente("Cristina", "Gruppo", "CriGru", "Crostina");
+		Utente utente = new Utente("Cristina", "Gruppo", "CriGru", "Cristina");
 
 		// Creo un UtenteLibro associato all'utente e al libro
 		UtenteLibro utenteLibro = new UtenteLibro();
