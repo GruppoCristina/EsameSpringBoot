@@ -20,7 +20,7 @@ public class Libro {
     @Size(min=2, max=50)
     String autore;
 
-    @Size(min=0, max=30)
+    @Size(min=0, max=3000)
     String descrizione;
 
     @NotNull
